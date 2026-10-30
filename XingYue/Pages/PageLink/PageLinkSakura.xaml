@@ -1,0 +1,59 @@
+<local:MyPageRight
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:XingYue" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             mc:Ignorable="d" x:Class="PageLinkSakura"
+             d:DesignWidth="800" d:DesignHeight="800">
+    <Grid>
+        <local:MyScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="25,25,25,25" MaxWidth="900" HorizontalAlignment="Stretch">
+                <StackPanel x:Name="PanSakuraLogin" Orientation="Horizontal" Margin="0,0,0,12" Visibility="Collapsed">
+                    <TextBlock x:Name="LabSakuraLogin" Text="尚未登录樱花映射，请先到 设置 → 联机 里登录。" FontSize="13.5" VerticalAlignment="Center"
+                               Foreground="{StaticResource ColorBrushGray3}" TextWrapping="Wrap" />
+                    <local:MyTextButton x:Name="BtnSakuraGoLogin" Text="前往登录" Margin="10,0,0,0" Opacity="0.8" VerticalAlignment="Center" />
+                </StackPanel>
+                <local:MyCard x:Name="CardSakuraCreate" Title="创建隧道" Margin="0,0,0,15">
+                    <Grid Margin="25,40,25,22">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="SakuraName" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="32" />
+                            <RowDefinition Height="16" />
+                            <RowDefinition Height="32" />
+                            <RowDefinition Height="16" />
+                            <RowDefinition Height="32" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="隧道名称" VerticalAlignment="Center" Margin="0,0,20,0" />
+                        <local:MyTextBox Grid.Row="0" Grid.Column="1" x:Name="TextSakuraName" MaxHeight="28"
+                                         ToolTip="仅用于在樱花映射面板里区分，随便起一个就行。" />
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="本地端口" VerticalAlignment="Center" Margin="0,0,20,0" />
+                        <local:MyTextBox Grid.Row="2" Grid.Column="1" x:Name="TextSakuraPort" MaxHeight="28"
+                                         ToolTip="要映射到公网的本地端口。Minecraft 服务器默认是 25565，单人游戏「对局域网开放」时请填游戏给出的端口。" />
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="节点" VerticalAlignment="Center" Margin="0,0,20,0" />
+                        <local:MyComboBox Grid.Row="4" Grid.Column="1" x:Name="ComboSakuraNode"
+                                          ToolTip="选择承载隧道的节点，列表里只显示当前可以创建隧道的节点。" />
+                        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,4,0,0">
+                            <local:MyButton x:Name="BtnSakuraCreate" Text="创建隧道" Padding="16,7" MinWidth="120" Margin="0,0,15,0" ColorType="Highlight" />
+                            <local:MyButton x:Name="BtnSakuraRefreshNodes" Text="刷新节点" Padding="16,7" MinWidth="110" />
+                        </StackPanel>
+                    </Grid>
+                </local:MyCard>
+                <local:MyCard x:Name="CardSakuraInfo" Title="映射列表" Margin="0,0,0,15">
+                    <StackPanel Margin="25,40,25,22">
+                        <TextBlock Text="把对应的地址发给朋友，他们在 Minecraft 多人游戏里添加就能进服：" FontSize="14"
+                                   Foreground="{StaticResource ColorBrushGray2}" TextWrapping="Wrap" />
+                        <StackPanel x:Name="PanSakuraTunnels" Margin="0,12,0,0" />
+                        <TextBlock x:Name="LabSakuraEmpty" Text="还没有创建隧道，先在上面创建一条吧。" FontSize="13.5" Margin="0,10,0,0"
+                                   Foreground="{StaticResource ColorBrushGray3}" TextWrapping="Wrap" />
+                    </StackPanel>
+                </local:MyCard>
+                <TextBlock Margin="5,0" FontSize="12.5" LineHeight="18" Foreground="{StaticResource ColorBrushGray3}" TextWrapping="Wrap"
+                           Text="可以创建多条隧道，分别映射不同的本地端口（例如两个游戏各开一个房间），每条隧道单独启动、互不影响。首次启动映射需要下载约 14 MB 的樱花映射客户端（frpc）。" />
+            </StackPanel>
+        </local:MyScrollViewer>
+    </Grid>
+</local:MyPageRight>

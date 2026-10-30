@@ -1,0 +1,55 @@
+name: Build
+on:
+  push:
+    paths:
+      - 'XingYue/**'
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'XingYue/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v6
+      with:
+        fetch-depth: 1
+
+    - name: Set Describe
+      shell: bash
+      run: |
+          describe=`git describe --tags --always`
+          echo "describe=$describe" >> $GITHUB_ENV
+
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v3
+      with:
+        msbuild-architecture: x64
+
+    # 把提交哈希写进程序（源码里默认为空字符串）。
+    # 注意：本仓库不内置任何密钥，CurseForge API Key 需要在运行时自行配置。
+    - name: Replace
+      run: |
+        (gc "XingYue\Modules\Base\ModBase.vb") -replace 'Public Const CommitHash As String = ""', 'Public Const CommitHash As String = "${{ github.sha }}"' | Out-File "XingYue\Modules\Base\ModBase.vb"
+
+    - name: Restore NuGet Packages
+      run: dotnet restore XingYueCS\XingYueCS.csproj
+
+    - name: Build
+      run: msbuild "XingYue\XingYue.vbproj" -p:Configuration=${{ matrix.configuration }}
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v7
+      with:
+        name: ${{ matrix.configuration }} ${{ env.describe }}
+        path: XingYue\obj\${{ matrix.configuration }}\XingYue Launcher.exe
