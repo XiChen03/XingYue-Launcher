@@ -153,9 +153,9 @@ Namespace My.Resources
         '''<summary>
         '''  查找 System.Byte[] 类型的本地化资源。
         '''</summary>
-        Friend ReadOnly Property MeloongCore() As Byte()
+        Friend ReadOnly Property XingYueCore() As Byte()
             Get
-                Dim obj As Object = ResourceManager.GetObject("MeloongCore", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("XingYueCore", resourceCulture)
                 Return CType(obj, Byte())
             End Get
         End Property
@@ -163,9 +163,9 @@ Namespace My.Resources
         '''<summary>
         '''  查找 System.Byte[] 类型的本地化资源。
         '''</summary>
-        Friend ReadOnly Property MeloongCore_Wpf() As Byte()
+        Friend ReadOnly Property XingYueCore_Wpf() As Byte()
             Get
-                Dim obj As Object = ResourceManager.GetObject("MeloongCore.Wpf", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("XingYueCore.Wpf", resourceCulture)
                 Return CType(obj,Byte())
             End Get
         End Property

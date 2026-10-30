@@ -148,11 +148,11 @@
   <data name="libwebp64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\libwebp64.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MeloongCore" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\XingYueCS\bin\MeloongCore.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="XingYueCore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\XingYueCS\bin\XingYueCore.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MeloongCore.Wpf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\XingYueCS\bin\MeloongCore.Wpf.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="XingYueCore.Wpf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\XingYueCS\bin\XingYueCore.Wpf.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Microsoft.Win32.Registry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\XingYueCS\bin\Microsoft.Win32.Registry.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

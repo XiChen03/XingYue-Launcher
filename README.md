@@ -11,7 +11,7 @@
 | --- | --- |
 | `XingYue/` | 启动器主程序（VB.NET / WPF，`net48`） |
 | `XingYueCS/` | 启动器的 C# 侧组件 |
-| `MeloongCore/` | 公共库（`Shared` 通用工具 + `Wpf` 控件），以源码形式随仓库提供 |
+| `XingYueCore/` | 公共库（`Shared` 通用工具 + `Wpf` 控件），以源码形式随仓库提供 |
 | `RelayTool/` | 联机中转节点（`XingYue联机中转节点.exe`） |
 | `tools/` | 构建与辅助脚本 |
 | `patches/` | 历史补丁 |

@@ -7,9 +7,9 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "XingYue", "XingYue\XingYue.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XingYueCS", "XingYueCS\XingYueCS.csproj", "{32DE4AAF-F4D6-42C5-9604-19236DE96C69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeloongCore", "MeloongCore\Shared\MeloongCore.csproj", "{D22BBF3C-2177-0208-4E29-8466AA41AC6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XingYueCore", "XingYueCore\Shared\XingYueCore.csproj", "{D22BBF3C-2177-0208-4E29-8466AA41AC6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeloongCore.Wpf", "MeloongCore\Wpf\MeloongCore.Wpf.csproj", "{2DFFE2A0-1101-816B-D240-F644B2D74A68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XingYueCore.Wpf", "XingYueCore\Wpf\XingYueCore.Wpf.csproj", "{2DFFE2A0-1101-816B-D240-F644B2D74A68}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelayTool", "RelayTool\RelayTool.csproj", "{77B5496C-3439-4E73-9777-02AD6EB1CD40}"
 EndProject

@@ -68,10 +68,10 @@ Public Class Application
     Private Sub Application_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
         Try
             '核心初始化
-            MeloongCore.Main.Init("XingYue")
+            XingYueCore.Main.Init("XingYue")
             '把旧版以中文命名的数据文件夹迁移到新的英文名字
             MigrateLegacyFolders()
-            MeloongCore.Wpf.Main.Init()
+            XingYueCore.Wpf.Main.Init()
             If Not (e.Args.Contains("--update") OrElse e.Args.Contains("--gpu") OrElse e.Args.Contains("--memory")) Then '若是通过命令行调用，则不检查单例、不轮换日志（#9137）
                 WaitingMutex(e)
                 Logger.Instance = New XingYueLogger With {.logFolder = Paths.BaseThenName, .MinLevel = If(ModeDebug, LogLevel.Trace, LogLevel.Info)}
@@ -274,8 +274,8 @@ RetryCacheCheck:
     End Sub
 
     '动态 DLL 加载
-    Private Sub New() '这里必须尽早调用，且不能使用任何库，否则加载 MeloongCore 就会导致崩溃
-        Static Prefixes As String() = {"NAudio", "Newtonsoft.Json", "Ookii.Dialogs.Wpf", "Imazen.WebP", "CacheCow.Common", "CacheCow.Client.FileStore", "CacheCow.Client", "ThrottleDebounce", "System.Net.Http.Formatting", "Microsoft.Win32.Registry", "XingYueCS", "MeloongCore.Wpf", "MeloongCore"}
+    Private Sub New() '这里必须尽早调用，且不能使用任何库，否则加载 XingYueCore 就会导致崩溃
+        Static Prefixes As String() = {"NAudio", "Newtonsoft.Json", "Ookii.Dialogs.Wpf", "Imazen.WebP", "CacheCow.Common", "CacheCow.Client.FileStore", "CacheCow.Client", "ThrottleDebounce", "System.Net.Http.Formatting", "Microsoft.Win32.Registry", "XingYueCS", "XingYueCore.Wpf", "XingYueCore"}
         Static LoadedAssemblies As New ConcurrentDictionary(Of String, Lazy(Of Assembly))(StringComparer.Ordinal) '缓存
         AddHandler AppDomain.CurrentDomain.AssemblyResolve,
         Function(sender As Object, Args As ResolveEventArgs) As Assembly
@@ -290,7 +290,7 @@ RetryCacheCheck:
             Return LazyAssembly.Value
         End Function
     End Sub
-    Private Shared Sub ExtractLibwebp() '这个方法会调用 ModBase，进而调用 MeloongCore，所以不能放在 New 里
+    Private Shared Sub ExtractLibwebp() '这个方法会调用 ModBase，进而调用 XingYueCore，所以不能放在 New 里
         SetDllDirectory(PathUtils.RemoveSlashSuffix(PathPure.Value))
         Try
             ExtractResources(PathPure.Value & "libwebp.dll", "libwebp64")

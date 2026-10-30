@@ -707,10 +707,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Import Include="MeloongCore" />
-    <Import Include="MeloongCore.Extensions" />
-    <Import Include="MeloongCore.Wpf" />
-    <Import Include="MeloongCore.Wpf.Extensions" />
+    <Import Include="XingYueCore" />
+    <Import Include="XingYueCore.Extensions" />
+    <Import Include="XingYueCore.Wpf" />
+    <Import Include="XingYueCore.Wpf.Extensions" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="Newtonsoft.Json" />
     <Import Include="Newtonsoft.Json.Linq" />
@@ -957,13 +957,13 @@
     <None Include="Resources\lwjgl-unsafe-agent.jar" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MeloongCore\Shared\MeloongCore.csproj">
+    <ProjectReference Include="..\XingYueCore\Shared\XingYueCore.csproj">
       <Project>{d22bbf3c-2177-0208-4e29-8466aa41ac6f}</Project>
-      <Name>MeloongCore</Name>
+      <Name>XingYueCore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MeloongCore\Wpf\MeloongCore.Wpf.csproj">
+    <ProjectReference Include="..\XingYueCore\Wpf\XingYueCore.Wpf.csproj">
       <Project>{2dffe2a0-1101-816b-d240-f644b2d74a68}</Project>
-      <Name>MeloongCore.Wpf</Name>
+      <Name>XingYueCore.Wpf</Name>
     </ProjectReference>
     <ProjectReference Include="..\XingYueCS\XingYueCS.csproj">
       <Project>{32de4aaf-f4d6-42c5-9604-19236de96c69}</Project>
@@ -976,13 +976,13 @@
       <LogicalName>XingYueCS.dll</LogicalName>
       <Link>Resources\XingYueCS.dll</Link>
     </None>
-    <None Include="..\XingYueCS\bin\MeloongCore.dll">
-      <LogicalName>MeloongCore.dll</LogicalName>
-      <Link>Resources\MeloongCore.dll</Link>
+    <None Include="..\XingYueCS\bin\XingYueCore.dll">
+      <LogicalName>XingYueCore.dll</LogicalName>
+      <Link>Resources\XingYueCore.dll</Link>
     </None>
-    <None Include="..\XingYueCS\bin\MeloongCore.Wpf.dll">
-      <LogicalName>MeloongCore.Wpf.dll</LogicalName>
-      <Link>Resources\MeloongCore.Wpf.dll</Link>
+    <None Include="..\XingYueCS\bin\XingYueCore.Wpf.dll">
+      <LogicalName>XingYueCore.Wpf.dll</LogicalName>
+      <Link>Resources\XingYueCore.Wpf.dll</Link>
     </None>
     <None Include="..\XingYueCS\bin\Microsoft.Win32.Registry.dll">
       <LogicalName>Microsoft.Win32.Registry.dll</LogicalName>
