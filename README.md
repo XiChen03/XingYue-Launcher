@@ -2,7 +2,7 @@
 
 包含 XingYue 的大部分源代码，包括 UI 库、动画模块、下载模块、Minecraft 启动模块、联机模块与开服器模块等。
 
-本仓库为自维护分支：不包含上游的下载页、功能投票页、帮助文档库链接，也不内置任何第三方 API Key。<br/>
+本仓库不包含下载页、功能投票页与在线帮助文档库链接，也不内置任何第三方 API Key。<br/>
 非常感谢社区的大力支持！
 
 ## 目录结构
@@ -41,6 +41,8 @@ powershell -ExecutionPolicy Bypass -File tools\build.ps1 -Configuration Release
 
 程序产生的配置、日志与缓存都写在启动器同目录的 `XingYue\` 文件夹里，不会写入 `%AppData%`。
 
-## 许可
+## 来源与许可
 
-见 [LICENCE](LICENCE)。
+本项目源自 Plain Craft Launcher 2（PCL）的二次创作，感谢原作者。
+
+本仓库代码可自由使用、修改与分发（含商业用途），但须保留本说明，且不得宣称本项目由原作者开发或得到其认可。详见 [LICENCE](LICENCE)。

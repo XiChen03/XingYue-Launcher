@@ -1,7 +1,9 @@
-import io, re, sys
+import io, os, re, sys
 
-SRC = r'C:\AI\PCL2-main\tools\_pcl_extract\src\PageOtherTest.cs'
-OUT = r'C:\AI\PCL2-main\XingYue\Pages\PageOther\PageOtherTestCaveData.vb'
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+SRC = os.path.join(ROOT, 'tools', '_extract', 'src', 'PageOtherTest.cs')
+OUT = os.path.join(ROOT, 'XingYue', 'Pages', 'PageOther', 'PageOtherTestCaveData.vb')
 
 text = io.open(SRC, encoding='utf-8').read()
 lines = text.splitlines()
@@ -114,10 +116,10 @@ print('hint arrays:', [len(a) for a in hint_arrays])
 if len(cave_arrays) != 8 or len(hint_arrays) != 1:
     raise SystemExit('unexpected array layout')
 
-# 过滤掉含有旧品牌名的留言（用户要求：删掉所有 Plain Craft Launcher / PCL / PCL2）
+# 过滤掉含有其它启动器品牌名的留言
 BAN = ('plain craft launcher', 'pcl', '泡菜龙', '启动器', 'launcher', 'hmcl', 'ppccl',
        '主题', '百宝箱', '千万别点', '主页', '版本设置', '下载页', '设置中', '启动选项',
-       '龙猫', '曦辰', 'ltcat')
+       '龙猫', '曦辰', 'ltcat', '龙腾猫跃')
 
 # 官方原文里那条 base64 彩蛋，换成同名新品牌（仍然是 base64，保留彩蛋玩法）
 REPLACE = {'UGxhaW4gQ3JhZnQgTGF1bmNoZXIgMu+8gQ==': 'WGluZ1l1ZSBMYXVuY2hlcu+8gQ=='}
@@ -155,7 +157,7 @@ def apply_filter(name, arr):
         (dropped if is_banned(s) else kept).append(s)
     for s in dropped:
         print('[%s] 删除: %s' % (name, s.replace('\n', '\\n')))
-    return [REPLACE.get(s, s).replace('龙腾猫跃', '曦辰') for s in kept]
+    return [REPLACE.get(s, s) for s in kept]
 
 
 def vb_literal(s):

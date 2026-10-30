@@ -4,7 +4,7 @@ import os
 
 from PIL import Image
 
-IMG = r"C:\AI\PCL2-main\XingYue\Images"
+IMG = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "XingYue", "Images")
 
 src = Image.open(os.path.join(IMG, "icon2.png")).convert("RGBA")
 print("源图", src.size, "alpha", src.getchannel("A").getextrema())
@@ -32,4 +32,4 @@ prev = Image.open(os.path.join(IMG, "icon.ico"))
 prev.size = (256, 256)
 bg = Image.new("RGBA", (256, 256), (120, 120, 130, 255))
 bg.alpha_composite(prev.convert("RGBA"), (0, 0))
-bg.save(os.path.join(r"C:\AI\PCL2-main\tools", "_icon256.png"))
+bg.save(os.path.join(os.path.dirname(os.path.abspath(__file__)), "_icon256.png"))
